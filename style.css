@@ -111,7 +111,7 @@ main {
   color: rgba(255, 255, 255, 0.5);
 }
 
-.inputForm {
+.input-form {
   width: 90%;
   max-width: 350px;
   padding: 6px;
@@ -120,23 +120,23 @@ main {
   box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.3);
 }
 
-.inputForm label {
+.input-form label {
   font-weight: bold;
   display: block;
   margin-top: 4px;
 }
 
-.inputForm input,
-.inputForm textarea {
+.input-form input,
+.input-form textarea {
   width: 100%;
 }
 
-.inputForm .formControl {
+.input-form .form-control {
   padding: 6px;
   text-align: center;
 }
 
-.inputForm .error {
+.input-form .error {
   font-size: 0.8rem;
   color: #bb0000;
   display: none;

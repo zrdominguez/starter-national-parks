@@ -30,17 +30,17 @@ const submitHandler = (event) => {
     <h2>${formData.get("parkName")}</h2>
     <div class="location">${formData.get("parkLocation")}</div>
     <div class="description">${formData.get("parkDescription")}</div>
-    <button class="rateBtn" title="Add to Favourites">&#9734;</button>
+    <button class="rate-button" title="Add to Favourites">&#9734;</button>
     <div class="stats">
-      <div class="established stat">
+      <div class="established-display stat">
         <h3>Established</h3>
         <div class="value">${formData.get("parkEstablished")}</div>
       </div>
-      <div class="area stat">
+      <div class="area-display stat">
         <h3>Area</h3>
         <div class="value">${formData.get("parkArea")}</div>
       </div>
-      <div class="rating stat">
+      <div class="rating-display stat">
         <h3>Rating</h3>
         <div class="value">${formData.get("parkRating")}</div>
       </div>
@@ -138,19 +138,19 @@ const ratingSorterClickHandler = (event) => {
 // the point where all the code starts
 const main = () => {
   // select the nameSorter link
-  const nameSorter = document.querySelector("#nameSorter");
+  const nameSorter = document.querySelector("#name-sorter");
 
   // add an event listener
   nameSorter.addEventListener("click", nameSorterClickHandler);
 
   // select the ratingSorter link
-  const ratingSorter = document.querySelector("#ratingSorter");
+  const ratingSorter = document.querySelector("#rating-sorter");
 
   // add an event listener
   ratingSorter.addEventListener("click", ratingSorterClickHandler);
 
   // select all the buttons for all the parks
-  const allBtns = document.querySelectorAll(".rateBtn");
+  const allBtns = document.querySelectorAll(".rate-button");
 
   // iterate the list of buttons and add an event handler to each
   allBtns.forEach((btn) => {
@@ -158,7 +158,7 @@ const main = () => {
   });
 
   // get the form element
-  const form = document.querySelector("#parkForm");
+  const form = document.querySelector("#park-form");
 
   // attach the submit handler
   form.addEventListener("submit", submitHandler);
