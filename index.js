@@ -1,14 +1,13 @@
 const submitHandler = (event) => {
   event.preventDefault();
 
-  const form = document.querySelector("#parkForm");
+  const form = document.querySelector("#park-form");
   const formData = new FormData(form);
-
   // Keep track of if any errors are found
   let hasErrors = false;
 
   formData.forEach((value, key) => {
-    let errorId = `#${key.slice(4).toLowerCase()}Error`;
+    let errorId = `#${key}-error`;
     if (value.trim() === "") {
       document.querySelector(errorId).style.display = "block";
       hasErrors = true;
@@ -23,26 +22,26 @@ const submitHandler = (event) => {
     const parkSection = document.createElement("section");
 
     // add the park class
-    parkSection.classList.add("park");
+    parkSection.classList.add("park-display");
 
     // construct the HTML for this element
     const content = `
-    <h2>${formData.get("parkName")}</h2>
-    <div class="location">${formData.get("parkLocation")}</div>
-    <div class="description">${formData.get("parkDescription")}</div>
+    <h2>${formData.get("name")}</h2>
+    <div class="location-display">${formData.get("location")}</div>
+    <div class="description-display">${formData.get("description")}</div>
     <button class="rate-button" title="Add to Favourites">&#9734;</button>
     <div class="stats">
       <div class="established-display stat">
         <h3>Established</h3>
-        <div class="value">${formData.get("parkEstablished")}</div>
+        <div class="value">${formData.get("established")}</div>
       </div>
       <div class="area-display stat">
         <h3>Area</h3>
-        <div class="value">${formData.get("parkArea")}</div>
+        <div class="value">${formData.get("area")}</div>
       </div>
       <div class="rating-display stat">
         <h3>Rating</h3>
-        <div class="value">${formData.get("parkRating")}</div>
+        <div class="value">${formData.get("rating")}</div>
       </div>
     </div>
     `;
@@ -77,10 +76,10 @@ const sortByName = (parkA, parkB) => {
 // function for sorting by rating
 const sortByRating = (parkA, parkB) => {
   const parkARating = parseFloat(
-    parkA.querySelector(".rating > .value").innerText
+    parkA.querySelector(".rating-display > .value").innerText
   );
   const parkBRating = parseFloat(
-    parkB.querySelector(".rating > .value").innerText
+    parkB.querySelector(".rating-display > .value").innerText
   );
   return parkBRating - parkARating;
 };
@@ -93,7 +92,7 @@ const nameSorterClickHandler = (event) => {
   const main = document.querySelector("main");
 
   // 2. get the list of parks
-  const parksList = main.querySelectorAll(".park");
+  const parksList = main.querySelectorAll(".park-display");
 
   // 3. empty the main
   main.innerHTML = "";
@@ -118,7 +117,7 @@ const ratingSorterClickHandler = (event) => {
   const main = document.querySelector("main");
 
   // 2. get the list of parks
-  const parksList = main.querySelectorAll(".park");
+  const parksList = main.querySelectorAll(".park-display");
 
   // 3. empty the main
   main.innerHTML = "";
